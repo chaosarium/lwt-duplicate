@@ -32,7 +32,7 @@ h4 {
 .status0 {
   background-color: #ade0ff60;
   color: #000;
-  border-bottom: 2px solid #addfff;
+  border-bottom: 2px solid #7dcdff;
 }
 .status1 {
   background-color: #f5b8a96b;
@@ -71,8 +71,8 @@ h4 {
   color: #000;
 }
 .status98 {
-  background-color: #b2abe02f;
-  border-bottom: dashed 2px #9885ff;
+  background-color: #88888836;
+  border-bottom: dashed 2px #bebebe;
   color: #000;
 }
 .mwsty {
