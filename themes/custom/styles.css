@@ -499,7 +499,7 @@ dt {
   }
 
   /* the close text */
-  #overDiv a font[color="#FFFFFF"]{
+  #overDiv a font[color="#FFFFFF"], #overDiv b font[color="#FFFFFF"] {
     /* background-color: purple ! important; */
     color: black;
     padding: 1px 3px;
