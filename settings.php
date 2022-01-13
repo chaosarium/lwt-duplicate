@@ -136,6 +136,21 @@ if (isset($_REQUEST['op'])) {
 		);
 
 		saveSetting(
+			'set-ttsjs-rate',
+			$_REQUEST['set-ttsjs-rate']
+		);
+
+		saveSetting(
+			'set-ttsjs-lang',
+			$_REQUEST['set-ttsjs-lang']
+		);
+
+		// saveSetting(
+		// 	'set-ttsjs-voice',
+		// 	$_REQUEST['set-ttsjs-voice']
+		// );
+
+		saveSetting(
 			'set-archivedtexts-per-page',
 			$_REQUEST['set-archivedtexts-per-page']
 		);
@@ -476,7 +491,7 @@ echo error_message_with_hide($message, 1);
 		</tr>
 		<!-- ******************************************************* -->
 		<tr>
-			<th class="th1 center">Text to Speech</th>
+			<th class="th1 center" rowspan="3">Text to Speech (deprecated)</th>
 			<td class="td1 center">Save Audio Files to Disk</td>
 			<td class="td1 center">
 				<select name="set-tts" class="notempty">
@@ -486,6 +501,22 @@ echo error_message_with_hide($message, 1);
 					);
 					?>
 				</select>
+			</td>
+			<td class="td1 center"><img src="icn/status-busy.png" title="Field must not be empty" alt="Field must not be empty" /></td>
+		</tr>
+		<!-- *********************** tts.js rate ********************************  -->
+		<tr>
+			<td class="td1 center">tts.js rate</td>
+			<td class="td1 center">
+				<input class="notempty posnumber right" type="text" name="set-ttsjs-rate" data_info="Text to speech rate" value="<?php echo tohtml(getSettingWithDefault('set-ttsjs-rate')); ?>" maxlength="4" size="4" />
+			</td>
+			<td class="td1 center"><img src="icn/status-busy.png" title="Field must not be empty" alt="Field must not be empty" /></td>
+		</tr>
+		<!-- *********************** tts.js language ********************************  -->
+		<tr>
+			<td class="td1 center">tts.js language code</td>
+			<td class="td1 center">
+				<input class="notempty center" type="text" name="set-ttsjs-lang" data_info="A BCP 47 language tag" value="<?php echo tohtml(getSettingWithDefault('set-ttsjs-lang')); ?>" maxlength="8" size="8" />
 			</td>
 			<td class="td1 center"><img src="icn/status-busy.png" title="Field must not be empty" alt="Field must not be empty" /></td>
 		</tr>

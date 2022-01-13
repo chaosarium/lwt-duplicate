@@ -448,20 +448,26 @@ function make_tooltip(word,trans,roman,status) {
 	return title;
 }
 
-function escape_html_chars_2 (title, lg, ann) {
-	if (lg != '' ) {
-		title=escape_html_chars_with_tts(title,lg);
-	}
-	else{
-		title=escape_html_chars(title);
-	}
-	if (ann != '' && ann != '*') {
-		var ann2 = escape_html_chars(ann);
-		var re = new RegExp("(<br />▶[^<]*[" + DELIMITER + "][ ]{0,1}|<br />▶ )(" + ann2.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&') + ")(<|[ ]{0,1}[" + DELIMITER + "]| \\[)([^<]*[<]*br />▶ [^<]*)$","");
-		return title.replace(re,'$1<span style="color:red">$2</span>$3$4');
-	}
-	else
-		return title;
+function escape_html_chars_2(title, lg, ann) {
+  if (lg != "") {
+    title = escape_html_chars_with_tts(title, lg);
+  } else {
+    title = escape_html_chars_with_tts(title);
+  }
+  if (ann != "" && ann != "*") {
+    var ann2 = escape_html_chars_with_tts(ann);
+    var re = new RegExp(
+      "(<br />▶[^<]*[" +
+        DELIMITER +
+        "][ ]{0,1}|<br />▶ )(" +
+        ann2.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&") +
+        ")(<|[ ]{0,1}[" +
+        DELIMITER +
+        "]| \\[)([^<]*[<]*br />▶ [^<]*)$",
+      ""
+    );
+    return title.replace(re, '$1<span style="color:red">$2</span>$3$4');
+  } else return title;
 }
 
 function owin(url) {
@@ -527,10 +533,10 @@ function createSentLookupLink(torder,txid,url,txt) {
 // 	return '<span id="textToSpeak" style="cursor:pointer" title="Click on expression for pronunciation" onclick="var txt = $(\'#textToSpeak\').text();var audio = new Audio();audio.src =\'tts.php?tl=' + lg + '&q=\' + txt;audio.play();">' + s.replace(/&/g,'%AMP%').replace(/</g,'&#060;').replace(/>/g,'&#062;').replace(/"/g,'&#034;').replace(/'/g,'&#039;').replace(/%AMP%/g,'&#038;').replace(/\x0d/g,'<br />').replace(/<br/,'</span><br');
 // }
 
-// version with tts removed
+// version with tts.js
 function escape_html_chars_with_tts(s, lg) {
   return (
-    '<span id="textToSpeak" style="cursor:pointer" title="Click on expression for pronunciation">' +
+    "<span id='textToSpeak' style='cursor:pointer' title='Click on expression for pronunciation' onclick='readTextAloud(this.textContent, \"en\", 1)'>" +
     s
       .replace(/&/g, "%AMP%")
       .replace(/</g, "&#060;")
@@ -545,7 +551,14 @@ function escape_html_chars_with_tts(s, lg) {
 
 function escape_html_chars(s)
 {
-	return s.replace(/&/g,'%AMP%').replace(/</g,'&#060;').replace(/>/g,'&#062;').replace(/"/g,'&#034;').replace(/'/g,'&#039;').replace(/%AMP%/g,'&#038;').replace(/\x0d/g,'<br />');
+  return s
+    .replace(/&/g, "%AMP%")
+    .replace(/</g, "&#060;")
+    .replace(/>/g, "&#062;")
+    .replace(/"/g, "&#034;")
+    .replace(/'/g, "&#039;")
+    .replace(/%AMP%/g, "&#038;")
+    .replace(/\x0d/g, "<br />");
 }
 
 function escape_apostrophes(s)
