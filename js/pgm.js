@@ -536,7 +536,7 @@ function createSentLookupLink(torder,txid,url,txt) {
 // version with tts.js
 function escape_html_chars_with_tts(s, lg) {
   return (
-    "<span id='textToSpeak' style='cursor:pointer' title='Click on expression for pronunciation' onclick='readTextAloud(this.textContent, \"en\", 1)'>" +
+    "<span id='textToSpeak' style='cursor:pointer' title='Click on expression for pronunciation' onclick='readTextAloud(this.textContent)'>" +
     s
       .replace(/&/g, "%AMP%")
       .replace(/</g, "&#060;")

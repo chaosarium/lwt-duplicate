@@ -249,14 +249,12 @@ while ($record = mysqli_fetch_assoc($res)) {  // MAIN LOOP
 mysqli_free_result($res);
 echo '</span><span id="totalcharcount" class="hide">' . $currcharcount . '</span></p><p style="font-size:' . $textsize . '%;line-height: 1.4; margin-bottom: 300px;">&nbsp;</p></div>';
 
-$ttsjs_lang = getSettingWithDefault("set-ttsjs-lang");
-$ttsjs_rate = getSettingWithDefault("set-ttsjs-rate");
-
 ?>
 
-<script src="js/tts.js"></script>
+<?php include 'tts.php';?>
+
 <script>
-	applyTTS("<?php echo $ttsjs_lang; ?>", <?php echo $ttsjs_rate; ?>)
+	applyTTS()
 </script>
 
 <?php

@@ -145,11 +145,6 @@ if (isset($_REQUEST['op'])) {
 			$_REQUEST['set-ttsjs-lang']
 		);
 
-		// saveSetting(
-		// 	'set-ttsjs-voice',
-		// 	$_REQUEST['set-ttsjs-voice']
-		// );
-
 		saveSetting(
 			'set-archivedtexts-per-page',
 			$_REQUEST['set-archivedtexts-per-page']

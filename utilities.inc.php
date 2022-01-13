@@ -3106,9 +3106,7 @@ function get_setting_data() {
 		'set-ttsjs-rate' => 
 		array("dft" => '1', "num" => 0),
 		'set-ttsjs-lang' => 
-		array("dft" => 'en-US', "num" => 0),
-		// 'set-ttsjs-lang' => 
-		// array("dft" => '0', "num" => 0),
+		array("dft" => 'en-AU', "num" => 0),
 		'set-term-sentence-count' => 
 		array("dft" => '1', "num" => 0),
 		'set-archivedtexts-per-page' => 

@@ -309,16 +309,10 @@ if ($waittime <= 0 ) {
 //]]>
 </script>
 
-<?php
+<?php include 'tts.php';?>
 
-$ttsjs_lang = getSettingWithDefault("set-ttsjs-lang");
-$ttsjs_rate = getSettingWithDefault("set-ttsjs-rate");
-
-?>
-
-<script src="js/tts.js"></script>
 <script>
-	applyTTS("<?php echo $ttsjs_lang; ?>", <?php echo $ttsjs_rate; ?>)
+	applyTTS()
 </script>
 
 <?php
